@@ -1,4 +1,4 @@
-public abstract class BasisRezeptEssen extends BasisRezept {
+public class BasisRezeptEssen extends BasisRezept {
 
     private boolean vegetarisch;
     private boolean vegan;

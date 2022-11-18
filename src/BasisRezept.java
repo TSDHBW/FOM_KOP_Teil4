@@ -1,4 +1,4 @@
-public abstract class BasisRezept {
+public class BasisRezept {
 
     private String name;
     private Zutat[] zutaten;
