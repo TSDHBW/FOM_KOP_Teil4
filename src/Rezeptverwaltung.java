@@ -1,64 +1,90 @@
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 public class Rezeptverwaltung {
 
-    private PastaGericht[] pastaRezepte;
-    private FleischGericht[] fleischRezepte;
-    private Cocktail[] cocktailRezepte;
-    private Limonade[] limonadeRezepte;
+    private BasisRezept[] rezepte;
 
     public Rezeptverwaltung (){
 
-        pastaRezepte = new PastaGericht[1000];
-        fleischRezepte = new FleischGericht[1000];
-        cocktailRezepte = new Cocktail[1000];
-        limonadeRezepte = new Limonade[1000];
+        rezepte = new BasisRezept[1000];
 
     }
 
+    public void nehmeRezeptAuf (BasisRezept rezept) {
 
-    public int ermittleAnzahlRezepte (String art){
+        boolean aufgenommen = false;
+        for (int i = 0; i < rezepte.length; i++){
 
-        return 0;
+            if (rezepte[i] == null){
+                aufgenommen = true;
+                rezepte[i] = rezept;
+                System.out.println("Rezept wurde aufgenommen");
+                break;
+            }
+        }
+        if (aufgenommen == false){
+            System.out.println("Rezept konnte nicht aufgenommen werden. Alle verfügbaren Plätze sind belegt");
+        }
 
     }
 
-    public void zeigeRezetAn (String art, String name){
+    public void zeigeAlleRezepteAn () {
 
+        for (int i = 0; i < rezepte.length; i++){
+
+            if (rezepte[i] != null){
+
+                System.out.println(rezepte[i].getName());
+
+            }
+        }
     }
 
-    public void sucheRezeptNachZutat(Zutat zutat){
+    public void loescheRezept (String rezeptname, String rezeptart){
 
+        for (int i = 0; i < rezepte.length; i++){
+
+            if (rezepte[i] != null){
+
+                if (rezepte[i].getName().equals(rezeptname) && rezepte[i].getTyp().equals(rezeptart)){
+
+                    rezepte[i] = null;
+
+                }
+            }
+        }
     }
 
-    public PastaGericht[] getPastaRezepte() {
-        return pastaRezepte;
+    public void zeigeRezeptAn (String rezeptname, String rezeptart){
+
+        for (int i = 0; i < rezepte.length; i++){
+
+            if (rezepte[i] != null){
+
+                if (rezepte[i].getName().equals(rezeptname) && rezepte[i].getTyp().equals(rezeptart)){
+
+                    System.out.println("Anzeige von Rezept:");
+                    System.out.println("Name: " + rezepte[i].getName());
+                    System.out.println("Rezeptart: " + rezepte[i].getTyp());
+                    System.out.print("Zutaten: ");
+                    for (int j = 0; j < rezepte[i].getZutaten().length; j++){
+
+                        System.out.print(rezepte[i].getZutaten()[j].getName() + " ");
+
+                    }
+                }
+            }
+        }
     }
 
-    public void setPastaRezepte(PastaGericht[] pastaRezepte) {
-        this.pastaRezepte = pastaRezepte;
+
+    public BasisRezept[] getRezepte() {
+        return rezepte;
     }
 
-    public FleischGericht[] getFleischRezepte() {
-        return fleischRezepte;
-    }
-
-    public void setFleischRezepte(FleischGericht[] fleischRezepte) {
-        this.fleischRezepte = fleischRezepte;
-    }
-
-    public Cocktail[] getCocktailRezepte() {
-        return cocktailRezepte;
-    }
-
-    public void setCocktailRezepte(Cocktail[] cocktailRezepte) {
-        this.cocktailRezepte = cocktailRezepte;
-    }
-
-    public Limonade[] getLimonadeRezepte() {
-        return limonadeRezepte;
-    }
-
-    public void setLimonadeRezepte(Limonade[] limonadeRezepte) {
-        this.limonadeRezepte = limonadeRezepte;
+    public void setRezepte(BasisRezept[] rezepte) {
+        this.rezepte = rezepte;
     }
 
 }

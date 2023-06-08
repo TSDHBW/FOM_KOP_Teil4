@@ -39,12 +39,8 @@ public class MVCController {
         Zutat[] zutatenZitronenlimo = {zitrone, minze, zucker, wasser, eis};
         Limonade zitronenlimo = new Limonade("Zitronenlimo", zutatenZitronenlimo, false, false, "Zitrone", false);
 
-        Limonade[] limorezepte = model.rezeptverwaltung.getLimonadeRezepte();
-        limorezepte[0] = orangenlimo;
-        limorezepte[1] = zitronenlimo;
-        model.rezeptverwaltung.setLimonadeRezepte(limorezepte);
 
-        System.out.println(limorezepte[0].getName());
+
 
     }
 }

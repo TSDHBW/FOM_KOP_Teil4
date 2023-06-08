@@ -2,6 +2,7 @@ public class BasisRezept {
 
     private String name;
     private Zutat[] zutaten;
+    private String typ;
 
     public BasisRezept(String name, Zutat[]zutaten){
 
@@ -30,4 +31,11 @@ public class BasisRezept {
         this.zutaten = zutaten;
     }
 
+    public String getTyp() {
+        return typ;
+    }
+
+    public void setTyp(String typ) {
+        this.typ = typ;
+    }
 }
