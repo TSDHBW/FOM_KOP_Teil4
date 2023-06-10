@@ -39,7 +39,10 @@ public class MVCController {
         Zutat[] zutatenZitronenlimo = {zitrone, minze, zucker, wasser, eis};
         Limonade zitronenlimo = new Limonade("Zitronenlimo", zutatenZitronenlimo, false, false, "Zitrone", false);
 
-
+        model.rezeptverwaltung.nehmeRezeptAuf(orangenlimo);
+        model.zutatenverwaltung.nehmeZutatAuf(zitrone);
+        model.zutatenverwaltung.nehmeZutatAuf(eis);
+        model.zutatenverwaltung.nehmeZutatAuf(zitrone);
 
 
     }
