@@ -15,18 +15,28 @@ public class Rezeptverwaltung {
 
         boolean aufgenommen = false;
         for (int i = 0; i < rezepte.length; i++){
-
-            if (rezepte[i] == null){
+            if(rezepte[i]!=null && rezepte[i].getName().equals(rezept.getName())
+                    && rezepte[i].getTyp().equals(rezept.getTyp())){
                 aufgenommen = true;
                 rezepte[i] = rezept;
-                System.out.println("Rezept wurde aufgenommen");
+                System.out.println("Rezept: " + rezept.getName() + " wurde aktualisiert");
                 break;
+            }
+        }
+        if (aufgenommen == false){
+            for (int i = 0; i < rezepte.length; i++){
+
+                if (rezepte[i] == null){
+                    aufgenommen = true;
+                    rezepte[i] = rezept;
+                    System.out.println("Rezept: " + rezept.getName() + " wurde aufgenommen");
+                    break;
+                }
             }
         }
         if (aufgenommen == false){
             System.out.println("Rezept konnte nicht aufgenommen werden. Alle verfügbaren Plätze sind belegt");
         }
-
     }
 
     public void zeigeAlleRezepteAn () {
@@ -76,6 +86,61 @@ public class Rezeptverwaltung {
                 }
             }
         }
+    }
+
+    public int ermittleAnzahlRezepte (String rezeptart){
+
+        int anzahl = 0;
+
+        for (int i = 0; i < rezepte.length; i++){
+
+            if (rezepte[i] != null){
+
+                if (rezepte[i].getTyp().equals(rezeptart)){
+
+                    anzahl++;
+
+                }
+            }
+        }
+        return anzahl;
+    }
+
+    public int ermittleAnzahlRezepte (){
+
+        int anzahl = 0;
+
+        for (int i = 0; i < rezepte.length; i++){
+
+            if (rezepte[i] != null){
+
+                anzahl++;
+
+            }
+        }
+        return anzahl;
+    }
+
+    public BasisRezept getRezept(String rezeptname, String rezeptart){
+
+        boolean aktualisiert = false;
+        for (int i = 0; i < rezepte.length; i++){
+
+            if (rezepte[i] != null){
+
+                if (rezepte[i].getName().equals(rezeptname) && rezepte[i].getTyp().equals(rezeptart)){
+
+                    return rezepte[i];
+
+                }
+            }
+        }
+
+        if (aktualisiert == false){
+            System.out.println("Rezept nicht gefunden");
+        }
+        return null;
+
     }
 
 
