@@ -3,9 +3,9 @@ public class BasisRezeptGetraenk extends BasisRezept {
     private boolean heißGetraenk;
     private boolean zuckerfrei;
 
-    public BasisRezeptGetraenk(String name, Zutat[]zutaten, boolean heißGetraenk, boolean zuckerfrei){
+    public BasisRezeptGetraenk(String name, Zutat[]zutaten, String typ, boolean heißGetraenk, boolean zuckerfrei){
 
-        super(name, zutaten);
+        super(name, zutaten, typ);
         this.heißGetraenk = heißGetraenk;
         this.zuckerfrei = zuckerfrei;
 

@@ -5,7 +5,7 @@ public class Limonade extends BasisRezeptGetraenk {
 
     public Limonade (String name, Zutat[]zutaten, boolean heißGetraenk, boolean zuckerfrei, String fruchtgeschmack, boolean herstellungInHouse){
 
-        super(name, zutaten, heißGetraenk, zuckerfrei);
+        super(name, zutaten, "Limonade", heißGetraenk, zuckerfrei);
         this.fruchtgeschmack = fruchtgeschmack;
         this.herstellungInHouse = herstellungInHouse;
 

@@ -3,9 +3,9 @@ public class BasisRezeptEssen extends BasisRezept {
     private boolean vegetarisch;
     private boolean vegan;
 
-    public BasisRezeptEssen(String name, Zutat[]zutaten, boolean vegetarisch, boolean vegan){
+    public BasisRezeptEssen(String name, Zutat[]zutaten, String typ, boolean vegetarisch, boolean vegan){
 
-        super(name, zutaten);
+        super(name, zutaten, typ);
         this.vegetarisch = vegetarisch;
         this.vegan = vegan;
 

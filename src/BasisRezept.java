@@ -4,10 +4,11 @@ public class BasisRezept {
     private Zutat[] zutaten;
     private String typ;
 
-    public BasisRezept(String name, Zutat[]zutaten){
+    public BasisRezept(String name, Zutat[]zutaten, String typ){
 
         this.name = name;
         this.zutaten = zutaten;
+        this.typ = typ;
 
     }
 
