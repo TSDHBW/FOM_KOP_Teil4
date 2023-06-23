@@ -44,6 +44,22 @@ public class MVCController {
         model.zutatenverwaltung.nehmeZutatAuf(eis);
         model.zutatenverwaltung.nehmeZutatAuf(zitrone);
 
+        Verkaufspreis[]speisen ={caipirinha,orangenlimo,zitronenlimo};
+        System.out.println(ermittleGesamtpreis(speisen));
+
+    }
+
+    public double ermittleGesamtpreis (Verkaufspreis[]speisen){
+
+        System.out.println("----");
+        System.out.println("Gesamtpreis:");
+        double gesamtpreis = 0.00;
+        for (int i = 0; i < speisen.length; i++){
+            if (speisen[i]!=null){
+                gesamtpreis = gesamtpreis + speisen[i].ermittleVerkaufspreis();
+            }
+        }
+        return gesamtpreis;
 
     }
 }
